@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-geist-mono), monospace;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-anton: var(--font-anton), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  :root, .dark {
+    /* User set background to light gray/white */
+    --background: #000000;
+    /* Flip text to black for contrast */
+    --foreground: #F2F2F2;
+    --card: #FFFFFF;
+    --secondary: #E5E5E5;
+    --muted: #E5E5E5;
+    --input: #FFFFFF;
+    /* Heavy black borders for light brutalism */
+    --border: #000000;
+    --muted-foreground: #555555;
+    
+    --primary: #00F58A;
+    --accent: #00F58A;
+    --ring: #00F58A;
+    --color-neon: #00F58A;
+    
+    --primary-foreground: #000000;
+    --accent-foreground: #000000;
+    
+    --destructive: #FF3B3B;
+    
+    --radius: 0px;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  * {
+    border-radius: 0 !important;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
