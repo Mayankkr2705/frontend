@@ -5,13 +5,13 @@
 
 const axios = require('axios');
 
-const API_URL = 'http://localhost:1337/api';
+const API_URL = 'https://backend-e6tp.onrender.com/api';
 
 // Test credentials
 const testUser = {
-  email: 'test@example.com',
+  email: `test${Date.now()}@example.com`,
   password: 'password123',
-  username: 'testuser'
+  username: `testuser${Date.now()}`
 };
 
 async function testFlow() {
@@ -19,23 +19,23 @@ async function testFlow() {
 
   try {
     // Step 1: Register/SignUp
-    // console.log('📝 Step 1: Attempting to register...');
-    // let signUpResponse;
-    // try {
-    //   signUpResponse = await axios.post(`${API_URL}/auth/local/register`, {
-    //     username: testUser.username,
-    //     email: testUser.email,
-    //     password: testUser.password,
-    //   });
-    //   console.log('✅ SignUp successful');
-    //   console.log(`Token: ${signUpResponse.data.jwt.substring(0, 20)}...`);
-    // } catch (error) {
-    //   if (error.response?.status === 400 && error.response?.data?.message?.includes('already')) {
-    //     console.log('⚠️ User already exists, proceeding with login...');
-    //   } else {
-    //     throw error;
-    //   }
-    // }
+    console.log('📝 Step 1: Attempting to register...');
+    let signUpResponse;
+    try {
+      signUpResponse = await axios.post(`${API_URL}/auth/local/register`, {
+        username: testUser.username,
+        email: testUser.email,
+        password: testUser.password,
+      });
+      console.log('✅ SignUp successful');
+      console.log(`Token: ${signUpResponse.data.jwt.substring(0, 20)}...`);
+    } catch (error) {
+      if (error.response?.status === 400 && error.response?.data?.message?.includes('already')) {
+        console.log('⚠️ User already exists, proceeding with login...');
+      } else {
+        throw error;
+      }
+    }
 
     // Step 2: Login
     console.log('\n🔐 Step 2: Logging in...');

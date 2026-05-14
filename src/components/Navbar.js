@@ -17,7 +17,7 @@ const NavBar = () => {
           <div className="relative w-30 h-50 opacity-80 group-hover:opacity-100 transition-opacity">
             <Image src="/logo.png" alt="App Logo" fill className="object-contain" />
           </div>
-          <span style={{ fontFamily: 'var(--font-anton)' }} className="text-2xl tracking-widest text-foreground uppercase mt-1">
+          <span style={{ fontFamily: 'var(--font-anton)' }} className="hidden sm:block text-2xl tracking-widest text-foreground uppercase mt-1">
             AdminFlow
           </span>
         </Link>

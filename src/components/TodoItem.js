@@ -41,7 +41,7 @@ const TodoItem = ({ todo, onToggleTodo, onDeleteTodo }) => {
       
       <button
         onClick={() => onDeleteTodo(id)}
-        className="font-mono text-[10px] uppercase tracking-[0.2em] text-red-400 border border-red-400/30 px-3 py-1 hover:bg-red-400/10 transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+        className="font-mono text-[10px] uppercase tracking-[0.2em] text-red-400 border border-red-400/30 px-3 py-1 hover:bg-red-400/10 transition-colors cursor-pointer opacity-100 sm:opacity-0 group-hover:opacity-100"
       >
         DELETE
       </button>
